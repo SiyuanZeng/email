@@ -32,7 +32,7 @@ public class TestGmail {
     private User user;
 
     private InboxPage inboxPage;
-    private String URL_INBOX_PAGE = "https://mail.google.com/mail/u/0/#inbox";
+    private String URL_INBOX_PAGE = "https://mail.google.com/mail/#inbox";
     private String TO = "ksenija.volynj@gmail.com";
     private String SUBJECT = "subject";
     private String MESSAGE = "Hello my friend!";
