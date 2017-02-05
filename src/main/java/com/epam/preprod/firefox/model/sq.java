@@ -65,6 +65,10 @@ public class sq {
 //            System.out.println(prefs.getInt(ID3, 50));
 
             // now set the values
+            // oh yea
+            // oh yea
+
+            // oh yea
             prefs.put(ID1, "");
             prefs.put(ID2, "");
             prefs.put(ID3, "");
