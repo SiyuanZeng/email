@@ -12,6 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -51,7 +52,7 @@ public class sq {
 
     @Test
     public void testOpenLogin() {
-        System.setProperty("webdriver.gecko.driver","C:\\email\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver",new File("geckodriver.exe").getAbsolutePath());
         firefoxDriver = new FirefoxDriver();
         firefoxDriver.get(URL_LOGIN_PAGE);
         loginPage = new LoginPage(firefoxDriver);
