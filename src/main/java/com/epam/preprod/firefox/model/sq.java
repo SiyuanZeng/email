@@ -146,6 +146,22 @@ public class sq {
     }
 
     @Test(dependsOnMethods = {"testOpenLogin"})
+    public void atestNewMessagew() {
+        System.setProperty("webdriver.gecko.driver",new File("geckodriver.exe").getAbsolutePath());
+        PreferenceTest p = new PreferenceTest();
+        firefoxDriver = new FirefoxDriver();
+        firefoxDriver.get(sURL_LOGIN_PAGE);
+        loginPage = new LoginPage(firefoxDriver);
+        user = new User(sEMAIL , p.prefs.get(sEMAIL , "error"));
+        message = new Message(TO, SUBJECT, MESSAGE);
+
+        loginPage = loginPage.emailsInput(user.getLogin());
+        inboxPage = loginPage.passwordInputs(user.getPassword());
+//        firefoxDriver.get(sURL_DRAFTS_PAGE);
+
+    }
+
+    @Test(dependsOnMethods = {"testOpenLogin"})
     public void stestNewMessagew() {
         System.setProperty("webdriver.gecko.driver",new File("geckodriver.exe").getAbsolutePath());
         PreferenceTest p = new PreferenceTest();
