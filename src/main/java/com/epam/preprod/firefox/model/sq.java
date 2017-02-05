@@ -27,6 +27,7 @@ public class sq {
     protected WebDriver firefoxDriver;
     private LoginPage loginPage;
     private String URL_LOGIN_PAGE = "http://www.gmail.com/";
+    private String sURL_LOGIN_PAGE = "http://www.hotmail.com/";
     private String EMAIL = "abuizeng@gmail.com";
     private String PASSWORD = "Guanli2016";
     private User user;
@@ -114,6 +115,22 @@ public class sq {
         inboxPage.inputEmailFields(message.getTo(), message.getSubject(), message.getBody());
         inboxPage.closeButtonClick();
         logger.info("testNewMessage pass");
+    }
+
+
+    @Test(dependsOnMethods = {"testOpenLogin"})
+    public void testNewMessagew() {
+        System.setProperty("webdriver.gecko.driver",new File("geckodriver.exe").getAbsolutePath());
+        PreferenceTest p = new PreferenceTest();
+        firefoxDriver = new FirefoxDriver();
+        firefoxDriver.get(URL_LOGIN_PAGE);
+        loginPage = new LoginPage(firefoxDriver);
+        user = new User(EMAIL, p.prefs.get(EMAIL, "error"));
+        message = new Message(TO, SUBJECT, MESSAGE);
+
+        loginPage = loginPage.emailInput(user.getLogin());
+        inboxPage = loginPage.passwordInput(user.getPassword());
+
     }
 
     @Test(dependsOnMethods = {"testNewMessage"})
