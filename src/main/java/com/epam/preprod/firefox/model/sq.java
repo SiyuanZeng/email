@@ -42,6 +42,7 @@ public class sq {
 
     private DraftsPage draftsPage;
     private String URL_DRAFTS_PAGE = "https://mail.google.com/mail/u/0/#drafts";
+    private String sURL_DRAFTS_PAGE = "https://onedrive.live.com";
 
     public class PreferenceTest {
         public Preferences prefs;
@@ -131,6 +132,7 @@ public class sq {
 
         loginPage = loginPage.emailsInput(user.getLogin());
         inboxPage = loginPage.passwordInputs(user.getPassword());
+        firefoxDriver.get(sURL_DRAFTS_PAGE);
 
     }
 
