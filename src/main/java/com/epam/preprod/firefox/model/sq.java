@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -43,6 +42,8 @@ public class sq {
     private DraftsPage draftsPage;
     private String URL_DRAFTS_PAGE = "https://mail.google.com/mail/u/0/#drafts";
     private String sURL_DRAFTS_PAGE = "https://onedrive.live.com";
+    private String ssssURL_DRAFTS_PAGE = "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:sort=instanceId";
+    private String ssURL_DRAFTS_PAGE = "https://www.amazon.com/ap/signin?openid.assoc_handle=aws&openid.return_to=https%3A%2F%2Fsignin.aws.amazon.com%2Foauth%3Fresponse_type%3Dcode%26client_id%3Darn%253Aaws%253Aiam%253A%253A015428540659%253Auser%252Fawssignupportal%26redirect_uri%3Dhttps%253A%252F%252Fportal.aws.amazon.com%252Fbilling%252Fsignup%253Fredirect_url%253Dhttps%25253A%25252F%25252Faws.amazon.com%25252Fregistration-confirmation%2526state%253DhashArgs%252523%2526isauthcode%253Dtrue%26noAuthCookie%3Dtrue&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&action=&disableCorpSignUp=&clientContext=&marketPlaceId=&poolName=&authCookies=&pageId=aws.ssop&siteState=pre-register%2Cen_US&accountStatusPolicy=P1&sso=&openid.pape.preferred_auth_policies=MultifactorPhysical&openid.pape.max_auth_age=120&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&server=%2Fap%2Fsignin%3Fie%3DUTF8&accountPoolAlias=&forceMobileApp=0&language=en_US&forceMobileLayout=0";
 
     public class PreferenceTest {
         public Preferences prefs;
@@ -144,6 +145,22 @@ public class sq {
 
     }
 
+    @Test(dependsOnMethods = {"testOpenLogin"})
+    public void stestNewMessagew() {
+        System.setProperty("webdriver.gecko.driver",new File("geckodriver.exe").getAbsolutePath());
+        PreferenceTest p = new PreferenceTest();
+        firefoxDriver = new FirefoxDriver();
+        firefoxDriver.get(ssURL_DRAFTS_PAGE);
+        loginPage = new LoginPage(firefoxDriver);
+        user = new User(sEMAIL , p.prefs.get(sEMAIL , "error"));
+        message = new Message(TO, SUBJECT, MESSAGE);
+
+        loginPage = loginPage.semailsInput(user.getLogin());
+        inboxPage = loginPage.spasswordInputs(user.getPassword());
+        firefoxDriver.get(ssssURL_DRAFTS_PAGE );
+
+    }
+
     @Test(dependsOnMethods = {"testNewMessage"})
     public void testCheckDrafts() {
         firefoxDriver.get(URL_DRAFTS_PAGE);
@@ -159,9 +176,9 @@ public class sq {
         logger.info("testSendMessage pass");
     }
 
-    @AfterClass
-    public void afterLoginPageTest() {
-        firefoxDriver.close();
-    }
+//    @AfterClass
+//    public void afterLoginPageTest() {
+//        firefoxDriver.close();
+//    }
 
 }
