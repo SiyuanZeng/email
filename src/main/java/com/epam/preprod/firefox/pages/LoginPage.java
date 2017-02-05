@@ -74,6 +74,12 @@ public class LoginPage extends BasePage {
     }
 
     public InboxPage passwordInputs(String password) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         this.passwords.clear();
         this.passwords.sendKeys(password);
         signInButtons.click();

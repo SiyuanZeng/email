@@ -63,7 +63,7 @@ public class sq {
 
             // now set the values
             prefs.put(ID1, "d");
-            prefs.put(ID2, "Hello Europa");
+            prefs.put(ID2, "");
             prefs.putInt(ID3, 45);
 
             // Delete the preference settings for the first value
@@ -126,11 +126,11 @@ public class sq {
         firefoxDriver = new FirefoxDriver();
         firefoxDriver.get(sURL_LOGIN_PAGE);
         loginPage = new LoginPage(firefoxDriver);
-        user = new User(EMAIL, p.prefs.get(EMAIL, "error"));
+        user = new User(sEMAIL , p.prefs.get(sEMAIL , "error"));
         message = new Message(TO, SUBJECT, MESSAGE);
 
         loginPage = loginPage.emailsInput(user.getLogin());
-        inboxPage = loginPage.passwordInput(user.getPassword());
+        inboxPage = loginPage.passwordInputs(user.getPassword());
 
     }
 
