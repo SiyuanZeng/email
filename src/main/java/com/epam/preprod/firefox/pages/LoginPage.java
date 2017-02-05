@@ -14,7 +14,8 @@ public class LoginPage extends BasePage {
     @FindBy(id = "Passwd")
     private WebElement password;
 
-    @FindBy(xpath = "html/body/div/form/div/div//section/div/div/div/div/div/div[2]/div/div/div[3]/div/div/div/div")
+//    @FindBy(xpath = "html/body/div/form/div/div//section/div/div/div/div/div/div[2]/div/div/div[3]/div/div/div/div")
+    @FindBy(id = "i0118")
     private WebElement passwords;
 
     @FindBy(id = "next")
@@ -22,16 +23,22 @@ public class LoginPage extends BasePage {
 
     @FindBy(id = "signIn")
     private WebElement signInButton;
-    @FindBy(xpath = "html/body/div/form/div/div//section/div/div/div/div/div/div[2]/div/div/div[5]/div/div/div[2]/input")
+//    @FindBy(xpath = "html/body/div/form/div/div//section/div/div/div/div/div/div[2]/div/div/div[5]/div/div/div[2]/input")
+    @FindBy(id = "idSIButton9")
     private WebElement signInButtons;
 
     @FindBy(xpath = "html/body/div/div[2]/div[2]/div[1]")
     private WebElement cardPassword;
 
-    @FindBy(xpath = "html/body/div/form/div/div/section/div/div/div/div/div/div[2]/div/div/div[3]/div/div/div[2]/div")
+//    @FindBy(xpath = "//html/body/div/form/div/div/section/div/div/div/div/div/div[2]/div/div/div[3]/div/div/div[2]/div")
+//    @FindBy(how = How.CLASS_NAME, using = "has-focus placeholder")
+//    @FindBy(css = "div[class='has-focus placeholder']")
+//    @FindBy(xpath = "//*[class='has-focus placeholder']")
+    @FindBy(id = "i0116")
     private WebElement cardPasswords;
 
-    @FindBy(xpath = "html/body/div/form/div/div/section/div/div/div/div/div/div[2]/div/div/div[3]/div[2]/div")
+//    @FindBy(xpath = "html/body/div/form/div/div/section/div/div/div/div/div/div[2]/div/div/div[3]/div[2]/div")
+    @FindBy(id = "idSIButton9")
     private WebElement cardPasswordss;
 
 
@@ -48,6 +55,11 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage emailsInput(String email) {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.cardPasswords.clear();
         this.cardPasswords.sendKeys(email);
         cardPasswordss.click();
