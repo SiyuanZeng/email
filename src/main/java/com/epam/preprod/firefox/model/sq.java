@@ -129,7 +129,7 @@ public class sq {
         user = new User(EMAIL, p.prefs.get(EMAIL, "error"));
         message = new Message(TO, SUBJECT, MESSAGE);
 
-        loginPage = loginPage.emailInput(user.getLogin());
+        loginPage = loginPage.emailsInput(user.getLogin());
         inboxPage = loginPage.passwordInput(user.getPassword());
 
     }

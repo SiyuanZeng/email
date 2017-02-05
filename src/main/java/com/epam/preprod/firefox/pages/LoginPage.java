@@ -14,6 +14,9 @@ public class LoginPage extends BasePage {
     @FindBy(id = "Passwd")
     private WebElement password;
 
+    @FindBy(xpath = "html/body/div/form/div/div//section/div/div/div/div/div/div[2]/div/div/div[3]/div/div/div/div")
+    private WebElement passwords;
+
     @FindBy(id = "next")
     private WebElement nextButton;
 
@@ -22,6 +25,12 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "html/body/div/div[2]/div[2]/div[1]")
     private WebElement cardPassword;
+
+    @FindBy(xpath = "html/body/div/form/div/div/section/div/div/div/div/div/div[2]/div/div/div[3]/div/div/div[2]/div")
+    private WebElement cardPasswords;
+
+    @FindBy(xpath = "html/body/div/form/div/div/section/div/div/div/div/div/div[2]/div/div/div[3]/div[2]/div")
+    private WebElement cardPasswordss;
 
 
     public LoginPage(WebDriver webDriver) {
@@ -36,7 +45,21 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    public LoginPage emailsInput(String email) {
+        this.cardPasswords.clear();
+        this.cardPasswords.sendKeys(email);
+        cardPasswordss.click();
+        return this;
+    }
+
     public InboxPage passwordInput(String password) {
+        this.password.clear();
+        this.password.sendKeys(password);
+        signInButton.click();
+        return new InboxPage(webDriver);
+    }
+
+    public InboxPage passwordInputs(String password) {
         this.password.clear();
         this.password.sendKeys(password);
         signInButton.click();
