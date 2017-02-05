@@ -29,6 +29,7 @@ public class sq {
     private String URL_LOGIN_PAGE = "http://www.gmail.com/";
     private String sURL_LOGIN_PAGE = "http://www.hotmail.com/";
     private String EMAIL = "abuizeng@gmail.com";
+    private String sEMAIL = "siyuanzeng@hotmail.com";
     private String PASSWORD = "Guanli2016";
     private User user;
 
@@ -123,7 +124,7 @@ public class sq {
         System.setProperty("webdriver.gecko.driver",new File("geckodriver.exe").getAbsolutePath());
         PreferenceTest p = new PreferenceTest();
         firefoxDriver = new FirefoxDriver();
-        firefoxDriver.get(URL_LOGIN_PAGE);
+        firefoxDriver.get(sURL_LOGIN_PAGE);
         loginPage = new LoginPage(firefoxDriver);
         user = new User(EMAIL, p.prefs.get(EMAIL, "error"));
         message = new Message(TO, SUBJECT, MESSAGE);
