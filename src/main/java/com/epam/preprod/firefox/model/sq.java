@@ -53,6 +53,8 @@ public class sq {
             String ID1 = "abuizeng@gmail.com";
             String ID2 = "siyuanzeng@hotmail.com";
             String ID3 = "siyuanzeng@gmail.com";
+            String ID4 = "github";
+            String ID5 = "github";
 
             // First we will get the values
             // Define a boolean value
@@ -63,9 +65,11 @@ public class sq {
 //            System.out.println(prefs.getInt(ID3, 50));
 
             // now set the values
-            prefs.put(ID1, "d");
+            prefs.put(ID1, "");
             prefs.put(ID2, "");
-            prefs.putInt(ID3, 45);
+            prefs.put(ID3, "");
+            prefs.put(ID4, "");
+            prefs.put(ID5, "");
 
             // Delete the preference settings for the first value
 //            prefs.remove(ID1);
