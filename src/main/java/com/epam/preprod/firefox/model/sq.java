@@ -27,7 +27,7 @@ public class sq {
     protected WebDriver firefoxDriver;
     private LoginPage loginPage;
     private String URL_LOGIN_PAGE = "http://www.gmail.com/";
-    private String EMAIL = "zengb45@gmail.com";
+    private String EMAIL = "abuizeng@gmail.com";
     private String PASSWORD = "Guanli2016";
     private User user;
 
@@ -60,12 +60,12 @@ public class sq {
 //            System.out.println(prefs.getInt(ID3, 50));
 
             // now set the values
-            prefs.put(ID1, "");
+            prefs.put(ID1, "d");
             prefs.put(ID2, "Hello Europa");
             prefs.putInt(ID3, 45);
 
             // Delete the preference settings for the first value
-            prefs.remove(ID1);
+//            prefs.remove(ID1);
 
         }
 
