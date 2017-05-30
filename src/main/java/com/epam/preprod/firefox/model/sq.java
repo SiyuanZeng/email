@@ -59,11 +59,11 @@ public class sq {
 
             // First we will get the values
             // Define a boolean value
-//            System.out.println(prefs.getBoolean(ID1, true));
+//            //System.out.println(prefs.getBoolean(ID1, true));
 //             Define a string with default "Hello World
-//            System.out.println(prefs.get(ID2, "Hello World"));
+//            //System.out.println(prefs.get(ID2, "Hello World"));
 //             Define a integer with default 50
-//            System.out.println(prefs.getInt(ID3, 50));
+//            //System.out.println(prefs.getInt(ID3, 50));
 
             // now set the values
             // oh yea
